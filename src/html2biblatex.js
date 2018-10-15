@@ -7,17 +7,17 @@
     let dd = date.getDate();
     let mm = date.getMonth() + 1;
     const yyyy = date.getFullYear();
-  
+
     // Add zero prefix:
     if (dd < 10) {
       dd = `0${dd}`;
     }
-  
+
     // Add zero prefix:
     if (mm < 10) {
       mm = `0${mm}`;
     }
-  
+
     // create string for date:
     return `${yyyy}-${mm}-${dd}`;
   }
@@ -56,13 +56,14 @@
     .replace(/\u00DF/g, '\\"s');
 
   // generate BiBTeX entry:
-  const bibTexEntry = `${type} {${citationKey},\r\
-\ \ title = {${title_tex}},\r\
-\ \ date = {${date}},\r\
-${author ? `\ \ author = {${author}},\r` : ""}\
-\ \ file = {${filename}},\r\
-\ \ url = {${url}},\r\
-\ \ urldate = {${urldate}}\r\
+  const bibTexEntry = `${type} {${citationKey},\n\
+\ \ title = {${title_tex}},\n\
+\ \ date = {${date}},\n\
+${author ? `\ \ author = {${author}},\n` : ""}\
+\ \ file = {${filename}},\n\
+\ \ url = {${url}},\n\
+\ \ urldate = {${urldate}},\n\
+\ \ note = {Visited on ${urldate}},\n\
 }`;
 
   copyToClipboard(bibTexEntry);
